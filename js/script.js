@@ -61,7 +61,7 @@ console.log(gradeId);
 
 
 
-var bike = [
+var bikes = [
     {
         nome: 'bianchi',
         peso: 60
@@ -84,47 +84,75 @@ var bike = [
     }
 ];
 
-let min = 0;
-const {peso} = bike;
+let min = bikes[0].peso;
+let nomeMin = bikes[0].nome;
+let {nome, peso} = bikes[0];
 
-bike.forEach((el, i) => {
-    
-    
-    min = el.peso < el.peso[i + 1] ? el.peso : el.peso[i + 1];
+
+/* let oggetto = {pro_1 : "ciao" , 
+pro_2: "a tutti", pro_3};
+
+let {pro_1, pro_2} = oggetto;
+pro_1 = oggetto.pro_1;
+pro_2 = oggetto.pro_2; */
+
+bikes.forEach((bike) => {
+    // se il peso della bici è minore del peso più piccolo che finora ho trovato
+    if(bike.peso < min){
+        //min = bike.peso;
+        //nomeMin = bike.nome;
+    ( {nome, peso} = bike );
+    }
+    // in nuovo valore del peso minimo è proprio questo
+    // altrimenti non faccio niente
 });
-console.log(min);
+
+console.log(nome, peso);
 
 var team = [
     {
-        nome: 'Milan',
+        name: 'Milan',
         punti: 0,
         falliSubiti: 0
     },
     {
-        nome: 'Juventus',
+        name: 'Juventus',
         punti: 0,
         falliSubiti: 0
     },
     {
-        nome: 'Bologna',
+        name: 'Bologna',
         punti: 0,
         falliSubiti: 0
     },
     {
-        nome: 'Genoa',
+        name: 'Genoa',
         punti: 0,
         falliSubiti: 0
     }
 ];
 
-const random = team.map((el) => {
+
+
+let random = team.map((el) => {
     let puntiR = genRandom(1,90);
     let falliSubitiR = genRandom(6,20);
-    let newTeam = {...el, punti: puntiR, falliSubiti: falliSubitiR};
-    return newTeam;
+    let ranTeam = {...el, punti: puntiR, falliSubiti: falliSubitiR};
+    return ranTeam;
 });
 
 console.log(random);
+
+let {name, falliSubiti} = team[0];
+
+const newFoul = team.map((el) => {
+    falliSubiti = genRandom(6,20);
+    ( {nome, falliSubiti} = team );
+    let newTeam = {nome, falliSubiti};
+    return newTeam;
+})
+
+console.log(newFoul);
 
 
 function genRandom(min, max){
