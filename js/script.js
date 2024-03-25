@@ -60,12 +60,8 @@ const gradeId = classe.filter((el) => {
 console.log(gradeId);
 
 
-function genRandom(min, max){
-    return Math.floor(Math.random() * max - min + 1) + min;
-}
 
-
-const bike = [
+var bike = [
     {
         nome: 'bianchi',
         peso: 60
@@ -94,6 +90,43 @@ const {peso} = bike;
 bike.forEach((el, i) => {
     
     
-    min = peso < peso[i + 1] ? el.peso : el.peso[i + 1];
+    min = el.peso < el.peso[i + 1] ? el.peso : el.peso[i + 1];
 });
 console.log(min);
+
+var team = [
+    {
+        nome: 'Milan',
+        punti: 0,
+        falliSubiti: 0
+    },
+    {
+        nome: 'Juventus',
+        punti: 0,
+        falliSubiti: 0
+    },
+    {
+        nome: 'Bologna',
+        punti: 0,
+        falliSubiti: 0
+    },
+    {
+        nome: 'Genoa',
+        punti: 0,
+        falliSubiti: 0
+    }
+];
+
+const random = team.map((el) => {
+    let puntiR = genRandom(1,90);
+    let falliSubitiR = genRandom(6,20);
+    let newTeam = {...el, punti: puntiR, falliSubiti: falliSubitiR};
+    return newTeam;
+});
+
+console.log(random);
+
+
+function genRandom(min, max){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
