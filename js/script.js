@@ -63,3 +63,37 @@ console.log(gradeId);
 function genRandom(min, max){
     return Math.floor(Math.random() * max - min + 1) + min;
 }
+
+
+const bike = [
+    {
+        nome: 'bianchi',
+        peso: 60
+    },
+    {
+        nome: 'atala',
+        peso: 72
+    },
+    {
+        nome: 'basso',
+        peso: 54
+    },
+    {
+        nome: 'bottecchia',
+        peso: 78
+    },
+    {
+        nome: 'carrera',
+        peso: 67
+    }
+];
+
+let min = 0;
+const {peso} = bike;
+
+bike.forEach((el, i) => {
+    
+    
+    min = peso < peso[i + 1] ? el.peso : el.peso[i + 1];
+});
+console.log(min);
